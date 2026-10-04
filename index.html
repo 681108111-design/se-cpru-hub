@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SE-CPRU HUB</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#faf7ff;color:#29213d}
+:root{--p:#7b2cbf;--y:#ffd43b;--g:#65c18c;--dark:#3b1764}
+header{background:linear-gradient(135deg,#7b2cbf,#9d4edd);color:white;padding:18px 6%;position:sticky;top:0;z-index:5;box-shadow:0 5px 20px #0002}
+nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.logo{font-size:25px;font-weight:900}.tag{font-size:13px;opacity:.9}
+nav a{color:white;text-decoration:none;margin:5px 8px;font-weight:700;font-size:14px}
+.hero{padding:60px 6%;background:linear-gradient(135deg,#fff,#f4eaff);display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(36px,6vw,68px);margin:0;color:var(--dark)}.hero h1 span{color:var(--p)}.hero p{font-size:19px;line-height:1.7}
+.badges{display:flex;gap:10px;flex-wrap:wrap}.badge{padding:10px 15px;border-radius:999px;background:white;box-shadow:0 5px 18px #7b2cbf18;font-weight:700}
+.hero-card{background:white;border-radius:30px;padding:30px;box-shadow:0 15px 40px #7b2cbf22;text-align:center}
+.hero-icon{font-size:90px}
+.container{max-width:1200px;margin:auto;padding:45px 6%}.section-title{font-size:30px;color:var(--dark);margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:white;border-radius:22px;padding:22px;box-shadow:0 8px 25px #0000000c;border:1px solid #eee}
+.stat{font-size:38px;font-weight:900;color:var(--p)}.icon{font-size:35px}
+form{display:grid;gap:14px}label{font-weight:700}input,select,textarea{width:100%;padding:13px 15px;border:1px solid #ddd;border-radius:13px;font:inherit}textarea{min-height:110px;resize:vertical}
+button{border:0;border-radius:14px;padding:13px 20px;background:var(--p);color:white;font-weight:800;cursor:pointer;font-size:16px}button:hover{opacity:.9}
+.btn2{background:var(--y);color:#432b00}.msg{padding:14px;border-radius:13px;background:#eefaf2;display:none;font-weight:700}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}.tabs button{background:#eee;color:#4b3a5f}.tabs button.active{background:var(--p);color:#fff}
+.panel{display:none}.panel.active{display:block}
+footer{background:#32134f;color:white;text-align:center;padding:30px 6%;margin-top:30px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}nav a{font-size:12px}}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.hero{padding-top:35px}}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<div><div class="logo">🌈 SE-CPRU HUB</div><div class="tag">เปิดโลก • เชื่อมคน • สร้างชุมชน</div></div>
+<div>
+<a href="#home">หน้าหลัก</a><a href="#member">สมัครสมาชิก</a><a href="#report">รายงานกิจกรรม</a><a href="#dashboard">สถิติ</a>
+</div>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div>
+<div class="badges"><span class="badge">💜 Social Engineer</span><span class="badge">💛 CPRU</span><span class="badge">💚 Community</span></div>
+<h1>SE-CPRU <span>HUB</span></h1>
+<p>ศูนย์กลางการจัดการข้อมูลสมาชิก กิจกรรม การลงพื้นที่ และการพัฒนาชุมชนของ <b>ชมรมวิศวกรสังคม CPRU</b></p>
+<a href="#member"><button>🚀 สมัครสมาชิกชมรม</button></a>
+<a href="#report"><button class="btn2">📋 ส่งรายงานกิจกรรม</button></a>
+</div>
+<div class="hero-card"><div class="hero-icon">🧑‍🤝‍🧑</div><h2>เปิดโลก • เชื่อมคน • สร้างชุมชน</h2><p>รวมพลังนักศึกษาเพื่อสร้างการเปลี่ยนแปลงที่ดีให้กับชุมชน</p></div>
+</section>
+
+<section class="container" id="dashboard">
+<h2 class="section-title">📊 Dashboard ชมรม</h2>
+<div class="grid">
+<div class="card"><div class="icon">👥</div><div>สมาชิก</div><div class="stat" id="members">—</div></div>
+<div class="card"><div class="icon">🎯</div><div>กิจกรรม</div><div class="stat" id="activities">—</div></div>
+<div class="card"><div class="icon">🏘️</div><div>ชุมชน</div><div class="stat" id="communities">—</div></div>
+<div class="card"><div class="icon">💚</div><div>ผู้ได้รับประโยชน์</div><div class="stat" id="beneficiaries">—</div></div>
+</div>
+</section>
+
+<section class="container" id="member">
+<h2 class="section-title">👤 สมัครสมาชิกชมรม</h2>
+<div class="card">
+<form id="memberForm">
+<div><label>รหัสนักศึกษา</label><input name="student_id" required></div>
+<div class="grid">
+<div><label>คำนำหน้า</label><select name="prefix"><option>นาย</option><option>นางสาว</option><option>นาง</option></select></div>
+<div><label>ชั้นปี</label><select name="year"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div><label>ชื่อ</label><input name="first_name" required></div>
+<div><label>นามสกุล</label><input name="last_name" required></div>
+</div>
+<div><label>สาขาวิชา</label><input name="major" placeholder="เช่น สาธารณสุขศาสตร์"></div>
+<div class="grid">
+<div><label>เบอร์โทรศัพท์</label><input name="phone"></div>
+<div><label>Email</label><input name="email" type="email"></div>
+</div>
+<div><label>ความสนใจ / ทักษะ</label><textarea name="interest" placeholder="เช่น สื่อสาร ช่างภาพ ลงพื้นที่ จัดกิจกรรม"></textarea></div>
+<button type="submit">💜 ส่งใบสมัครสมาชิก</button>
+<div class="msg" id="memberMsg"></div>
+</form>
+</div>
+</section>
+
+<section class="container" id="report">
+<h2 class="section-title">📋 รายงานกิจกรรม</h2>
+<div class="card">
+<form id="reportForm">
+<div><label>ชื่อกิจกรรม</label><input name="activity_name" required></div>
+<div class="grid">
+<div><label>วันที่จัดกิจกรรม</label><input name="date" type="date" required></div>
+<div><label>สถานที่</label><input name="location"></div>
+<div><label>จำนวนผู้เข้าร่วม</label><input name="participants" type="number" min="0"></div>
+</div>
+<div><label>ผลการดำเนินงาน</label><textarea name="result"></textarea></div>
+<div><label>ปัญหา / อุปสรรค</label><textarea name="problem"></textarea></div>
+<div><label>ข้อเสนอแนะ</label><textarea name="suggestion"></textarea></div>
+<button type="submit">💚 ส่งรายงานกิจกรรม</button>
+<div class="msg" id="reportMsg"></div>
+</form>
+</div>
+</section>
+
+<section class="container">
+<h2 class="section-title">✨ ระบบที่กำลังต่อยอด</h2>
+<div class="grid">
+<div class="card"><div class="icon">📱</div><b>QR Check-in</b><p>เช็กชื่อเข้าร่วมกิจกรรมด้วย QR Code</p></div>
+<div class="card"><div class="icon">🏆</div><b>XP & Badge</b><p>สะสมชั่วโมงกิจกรรมและรับตราสัญลักษณ์</p></div>
+<div class="card"><div class="icon">🏘️</div><b>ฐานข้อมูลชุมชน</b><p>จัดเก็บข้อมูลพื้นที่และการลงชุมชน</p></div>
+<div class="card"><div class="icon">📈</div><b>Impact Dashboard</b><p>ดูผลลัพธ์และผลกระทบของกิจกรรม</p></div>
+</div>
+</section>
+
+<footer>© 2026 ชมรมวิศวกรสังคม CPRU • SE-CPRU HUB<br>เปิดโลก • เชื่อมคน • สร้างชุมชน</footer>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbz3vZgU61UH2-pF5SmEuyPFR93_z-_syPF2MehQbOaiWaHfK5ySFq2ooNj3OKHOMEuG/exec";
+
+async function sendToGoogle(type,data){
+  const res = await fetch(API_URL,{
+    method:"POST",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({type,data})
+  });
+  return await res.json();
+}
+
+document.getElementById("memberForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const msg=document.getElementById("memberMsg");
+  msg.style.display="block"; msg.textContent="⏳ กำลังส่งข้อมูล...";
+  const data=Object.fromEntries(new FormData(e.target).entries());
+  try{
+    const r=await sendToGoogle("member",data);
+    msg.textContent=r.ok ? "✅ สมัครสมาชิกสำเร็จ! รหัสสมาชิก: "+r.member_id : "❌ "+r.error;
+    if(r.ok)e.target.reset();
+  }catch(err){msg.textContent="❌ เชื่อมต่อระบบไม่ได้ กรุณาตรวจสอบ URL และการ Deploy";}
+});
+
+document.getElementById("reportForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const msg=document.getElementById("reportMsg");
+  msg.style.display="block"; msg.textContent="⏳ กำลังส่งข้อมูล...";
+  const data=Object.fromEntries(new FormData(e.target).entries());
+  try{
+    const r=await sendToGoogle("report",data);
+    msg.textContent=r.ok ? "✅ ส่งรายงานสำเร็จ! เลขที่รายงาน: "+r.report_id : "❌ "+r.error;
+    if(r.ok)e.target.reset();
+  }catch(err){msg.textContent="❌ เชื่อมต่อระบบไม่ได้ กรุณาตรวจสอบ URL และการ Deploy";}
+});
+</script>
+</body>
+</html>
